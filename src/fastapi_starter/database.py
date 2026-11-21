@@ -1,8 +1,8 @@
 """SQLite database engine and session dependency."""
-
+from typing import Annotated
 from pathlib import Path
 from collections.abc import Generator
-
+from fastapi import Depends
 from sqlmodel import Session, SQLModel, create_engine
 
 
@@ -16,14 +16,12 @@ engine = create_engine(
 
 
 def create_db_and_tables() -> None:
-    """Create the SQLite file and any registered SQLModel tables."""
-    from . import model  # noqa: F401 — registers table models with SQLModel metadata
-
+    from . import model  
     with engine.connect() as connection:
         SQLModel.metadata.create_all(connection)
 
 
 def get_session() -> Generator[Session, None, None]:
-    """Provide a database session to a FastAPI endpoint."""
     with Session(engine) as session:
         yield session
+SessionDep = Annotated[Session,Depends(get_session)]
