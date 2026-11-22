@@ -6,10 +6,12 @@
 
 ```powershell
 uv sync
-uv run fastapi dev src/fastapi_starter/main.py
+uv run uvicorn fastapi_starter.main:app --host 127.0.0.1 --port 8001
 ```
 
-เปิดหน้าเอกสาร API ที่ <http://127.0.0.1:8000/docs>
+เปิดหน้าเว็บที่ <http://127.0.0.1:8001/> และเอกสาร API ที่ <http://127.0.0.1:8001/docs>
+
+หน้าเว็บกรอกและดูข้อมูลพนักงานจะส่งข้อมูลไปยัง `POST /employees` และอ่านรายการจาก `GET /employees` ผ่าน FastAPI
 
 ## โครงสร้าง
 
@@ -21,4 +23,8 @@ src/fastapi_starter/
   database.py       เตรียมไว้สำหรับเชื่อมต่อฐานข้อมูล
   model.py          เตรียมไว้สำหรับ SQLModel models
   schema.py         เตรียมไว้สำหรับ request/response schemas
+static/
+  index.html        โครงหน้าเว็บ
+  css/style.css     รูปแบบและการจัดหน้า
+  js/app.js         ส่ง/โหลดข้อมูลผ่าน API
 ```

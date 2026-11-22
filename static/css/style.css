@@ -1,0 +1,47 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #1f2937;
+  background: #f3f6fb;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+.page { width: min(1080px, calc(100% - 32px)); margin: 48px auto; }
+header { margin-bottom: 24px; }
+.eyebrow { color: #5266d8; font-size: .82rem; font-weight: 700; letter-spacing: .08em; }
+h1 { margin: 8px 0; font-size: clamp(1.7rem, 4vw, 2.35rem); }
+.intro { margin: 0; color: #64748b; }
+.layout { display: grid; grid-template-columns: minmax(270px, 350px) 1fr; gap: 20px; align-items: start; }
+.card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 8px 28px #23395d0b; }
+.form-card { padding: 24px; }
+.list-card { overflow: hidden; }
+h2 { margin: 0 0 18px; font-size: 1.15rem; }
+label { display: block; margin: 14px 0 6px; font-size: .9rem; font-weight: 600; }
+.optional-note { font-weight: 400; color: #64748b; }
+input, select { width: 100%; min-height: 42px; border: 1px solid #cbd5e1; border-radius: 9px; padding: 9px 11px; color: inherit; background: white; font: inherit; }
+input:focus, select:focus { outline: 3px solid #5266d826; border-color: #5266d8; }
+button { border: 0; border-radius: 9px; padding: 11px 16px; color: white; background: #4f5ed8; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #404fc6; }
+button:disabled { opacity: .6; cursor: wait; }
+.submit { width: 100%; margin-top: 20px; }
+.list-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 20px 22px; }
+.list-header h2 { margin: 0; }
+.refresh { padding: 8px 12px; color: #334155; background: #eef2ff; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 13px 16px; border-top: 1px solid #edf1f6; white-space: nowrap; }
+th { color: #64748b; background: #f8fafc; font-size: .8rem; }
+td { font-size: .92rem; }
+.empty { padding: 34px 16px; color: #64748b; text-align: center; }
+.status { min-height: 1.4em; margin: 12px 0 0; font-size: .9rem; }
+.status.error { color: #b42318; }
+.status.success { color: #147d4a; }
+.list-status { padding: 0 16px; }
+.hint { margin: 18px 0 0; color: #64748b; font-size: .82rem; line-height: 1.6; }
+code { color: #334155; background: #f1f5f9; border-radius: 4px; padding: 2px 4px; }
+
+@media (max-width: 760px) {
+  .page { margin: 28px auto; }
+  .layout { grid-template-columns: 1fr; }
+}
